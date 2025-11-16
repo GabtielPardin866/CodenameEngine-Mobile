@@ -306,12 +306,10 @@ class FunkinShader extends FlxShader implements IHScriptCustomBehaviour {
 			prefixBuf.add("#endif\n");
 			#end
 
-			prefixBuf.add("out vec4 output_FragColor;\n");
-
 			var prefix = prefixBuf.toString();
 
-			var vertex = prefix + vertexPrefix + glVertexSource.replace("attribute", "in").replace("varying", "out").replace("texture2D", "texture").replace("gl_FragColor", "output_FragColor");
-			var fragment = prefix + fragmentPrefix + glFragmentSource.replace("varying", "in").replace("texture2D", "texture").replace("gl_FragColor", "output_FragColor");
+			var vertex = prefix + vertexPrefix + glVertexSource;
+			var fragment = prefix + fragmentPrefix + glFragmentSource;
 
 			var id = vertex + fragment;
 
